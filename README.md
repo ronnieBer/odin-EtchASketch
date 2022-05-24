@@ -1,1 +1,1 @@
-# odin-EtchASketch
+# PROJECT: ETCH-A-SKETCH
