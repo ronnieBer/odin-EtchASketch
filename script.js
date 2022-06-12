@@ -8,6 +8,9 @@ function setupGrid() {
         const gridElement = document.createElement('div');
 
         gridElement.classList.add('grid-element');
+        gridElement.addEventListener('mouseover', () => {
+            gridElement.style.backgroundColor = '#525252';
+        });
         divContainer.appendChild(gridElement);
     };
 };
