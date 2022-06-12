@@ -1,0 +1,8 @@
+.container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #585858;
+    border-top-style: none;
+    background-color: #ffffff;
+}
