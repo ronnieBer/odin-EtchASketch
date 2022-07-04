@@ -21,10 +21,16 @@ function setupGrid(count) {
     };
 };
 
+// Function to clear grid
+function clearGrid() {
+    divContainer.innerHTML = '';
+};
+
 // Function to set new Current value
 function newCurrentGrid(newGrid) {
     currentGrid = newGrid;
 
+    clearGrid()
     setupGrid(currentGrid);
 };
 
