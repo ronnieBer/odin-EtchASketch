@@ -26,19 +26,12 @@ function clearGrid() {
     divContainer.innerHTML = '';
 };
 
-// Function to set new Current value
-function newCurrentGrid(newGrid) {
-    currentGrid = newGrid;
-
-    clearGrid()
-    setupGrid(currentGrid);
-};
-
 // Function to change Grid value
 function changeGrid() {
     let value = prompt('Please enter a new grid value');
 
-    newCurrentGrid(value);
+    clearGrid();
+    setupGrid(value);
 };
 
 const tools = document.querySelector('.tools-btn');
