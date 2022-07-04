@@ -1,5 +1,6 @@
 // Default Value
 const defaultGrid = 16;
+const defaultColor = '#525252';
 
 // Current Value
 let currentGrid = defaultGrid;
@@ -14,7 +15,7 @@ function setupGrid(count) {
         
         gridElement.classList.add('grid-element');
         gridElement.addEventListener('mouseover', () => {
-            gridElement.style.backgroundColor = '#525252';
+            gridElement.style.backgroundColor = defaultColor;
         });
         divContainer.appendChild(gridElement);
     };
@@ -23,15 +24,16 @@ function setupGrid(count) {
 // Function to set new Current value
 function newCurrentGrid(newGrid) {
     currentGrid = newGrid;
-    
+
     setupGrid(currentGrid);
 };
 
 // Function to change Grid value
 function changeGrid() {
     let value = prompt('Please enter a new grid value');
+
     newCurrentGrid(value);
-}
+};
 
 const tools = document.querySelector('.tools-btn');
 tools.addEventListener('click', (event) => {
@@ -42,13 +44,12 @@ tools.addEventListener('click', (event) => {
     // If not, exit from the function
     if (!target.matches('button')) {
         return
-    }
+    };
 
     if (target.classList.contains('settings')) {
-        // console.log('settings', target.value);
-        changeGrid()
+        changeGrid();
         return;
-    }
-})
+    };
+});
 
 setupGrid(defaultGrid);
