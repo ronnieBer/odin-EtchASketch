@@ -1,10 +1,15 @@
-const divContainer = document.getElementById('container');
+// Default Value
+const defaultGrid = 16;
 
-function setupGrid() {
-    divContainer.style.gridTemplateColumns = `repeat(16, 1fr)`;
-    divContainer.style.gridTemplateRows = `repeat(16, 1fr)`;
+// Current Value
+let currentGrid = defaultGrid;
+
+const divContainer = document.getElementById('container');
+function setupGrid(count) {
+    divContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    divContainer.style.gridTemplateRows = `repeat(${count}, 1fr)`;
     
-    for (let i = 0; i < 16 * 16; i++) {
+    for (let i = 0; i < count * count; i++) {
         const gridElement = document.createElement('div');
         
         gridElement.classList.add('grid-element');
@@ -15,7 +20,18 @@ function setupGrid() {
     };
 };
 
-setupGrid()
+// Function to set new Current value
+function newCurrentGrid(newGrid) {
+    currentGrid = newGrid;
+    
+    setupGrid(currentGrid);
+};
+
+// Function to change Grid value
+function changeGrid() {
+    let value = prompt('Please enter a new grid value');
+    newCurrentGrid(value);
+}
 
 const tools = document.querySelector('.tools-btn');
 tools.addEventListener('click', (event) => {
@@ -29,7 +45,10 @@ tools.addEventListener('click', (event) => {
     }
 
     if (target.classList.contains('settings')) {
-        console.log('settings', target.value);
+        // console.log('settings', target.value);
+        changeGrid()
         return;
     }
 })
+
+setupGrid(defaultGrid);
