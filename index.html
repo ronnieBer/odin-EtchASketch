@@ -16,9 +16,20 @@
     </header>
 
     <main>
-        <div class="tools-btn">
-            <button type="button" class="tls-btn settings" value="settings"><ion-icon name="settings"></ion-icon></button>
+        <div class="tools-ui">
+            <div id="tools-hdr" class="tools-hdr">
+                <h5>TOOLS</h5>
+            </div>
+            <div class="tools-btn">
+                <button type="button" class="tls-btn settings" value="settings"><ion-icon name="settings"></ion-icon></button>
+            </div>
+            <div class="color-picker-ui">
+                <button type="button" id="swap-clr-btn" class="swap-clr-btn"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+                <input type="color" value="#00E1FF" id="bg-clr-pckr" class="bg-clr clr-pckr">
+                <input type="color" value="#525252" id="fg-clr-pckr" class="fg-clr clr-pckr">
+            </div>
         </div>
+
         <div id="container" class="container"></div>
     </main>
 
