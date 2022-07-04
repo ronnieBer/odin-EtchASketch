@@ -28,7 +28,7 @@ function clearGrid() {
 
 // Function to change Grid value
 function changeGrid() {
-    let value = prompt('Please enter a new grid value');
+    let value = prompt('Please enter a new grid value', '16');
 
     clearGrid();
     setupGrid(value);
@@ -47,6 +47,26 @@ tools.addEventListener('click', (event) => {
 
     if (target.classList.contains('settings')) {
         changeGrid();
+        return;
+    };
+    
+    if (target.classList.contains('pencil')) {
+        console.log('pencil', target.value);
+        return;
+    };
+
+    if (target.classList.contains('eraser')) {
+        console.log('eraser', target.value);
+        return;
+    };
+
+    if (target.classList.contains('bg-fill')) {
+        console.log('bg-fill', target.value);
+        return;
+    };
+
+    if (target.classList.contains('random')) {
+        console.log('random', target.value);
         return;
     };
 });
