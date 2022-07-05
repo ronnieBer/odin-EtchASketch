@@ -7,11 +7,10 @@ const defaultMode = 'pencil';
 
 // Current Value
 let currentGrid = defaultGrid;
-
-function toggleShow() {
-    const settingsUi = document.getElementById('settings-ui');
-    settingsUi.classList.toggle('show');
-};
+let currentCanvas = defaultCanvas;
+let currentColor = defaultColor;
+let currentBgFill = defaultBgFill;
+let currentMode = defaultMode;
 
 const divContainer = document.getElementById('container');
 function setupGrid(count) {
@@ -30,6 +29,11 @@ function setupGrid(count) {
 };
 
 // Function to clear grid
+function toggleShow() {
+    const settingsUi = document.getElementById('settings-ui');
+    settingsUi.classList.toggle('show');
+};
+
 function clearGrid() {
     divContainer.innerHTML = '';
 };
