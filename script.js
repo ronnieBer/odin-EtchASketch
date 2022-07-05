@@ -34,14 +34,6 @@ function clearGrid() {
     divContainer.innerHTML = '';
 };
 
-// Function to change Grid value
-function changeGrid() {
-    let value = prompt('Please enter a new grid value', '16');
-
-    clearGrid();
-    setupGrid(value);
-};
-
 const tools = document.querySelector('.tools-btn');
 tools.addEventListener('click', (event) => {
     // Access the clicked element
