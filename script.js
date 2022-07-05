@@ -47,9 +47,8 @@ function setupGrid(count) {
         const gridElement = document.createElement('div');
         
         gridElement.classList.add('grid-element');
-        gridElement.addEventListener('mouseover', () => {
-            gridElement.style.backgroundColor = defaultColor;
-        });
+        gridElement.addEventListener('mouseover', changeColor);
+        gridElement.addEventListener('mousedown', changeColor);
         divContainer.appendChild(gridElement);
     };
 };
@@ -65,6 +64,19 @@ function toggleShow() {
 function clearGrid() {
     divContainer.innerHTML = '';
 };
+
+function changeColor(event) {
+    if (!mouseDown && event.type === 'mouseover') return;
+    if (currentMode === 'pencil') {
+        event.target.style.backgroundColor = currentColor;
+    } else if (currentMode === 'eraser') {
+        event.target.style.backgroundColor = '';
+    } else if (currentMode === 'bgFill') {
+        event.target.style.backgroundColor = currentBgFill;
+    } else if (currentMode === 'random') {
+        event.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    }
+}
 
 const tools = document.querySelector('.tools-btn');
 tools.addEventListener('click', (event) => {
