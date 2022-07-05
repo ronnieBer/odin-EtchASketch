@@ -15,23 +15,23 @@ let currentMode = defaultMode;
 // Change Current Value to a New Value Function
 function changeCurrentGrid(newGrid) {
     currentGrid = newGrid;
-}
+};
 
 function changeCurrentCanvas(newCanvas) {
     currentCanvas = newCanvas;
-}
+};
 
 function changeCurrentColor(newColor) {
     currentColor = newColor;
-}
+};
 
 function changeCurrentBgFill(newBgFill) {
     currentBgFill = newBgFill;
-}
+};
 
 function changeCurrentMode(newMode) {
     currentMode = newMode;
-}
+};
 
 // Mouse Down Event
 let mouseDown = false;
@@ -53,13 +53,6 @@ function setupGrid(count) {
     };
 };
 
-// Function to show settings UI
-function toggleShow() {
-    const settingsUi = document.getElementById('settings-ui');
-    settingsUi.classList.toggle('show');
-    settingsUi.classList.toggle('active')
-};
-
 // Function to clear grid
 function clearGrid() {
     divContainer.innerHTML = '';
@@ -75,55 +68,64 @@ function changeColor(event) {
         event.target.style.backgroundColor = currentBgFill;
     } else if (currentMode === 'random') {
         event.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    }
-}
+    };
+};
 
 const tools = document.querySelector('.tools-btn');
 tools.addEventListener('click', (event) => {
     // Access the clicked element
     const target = event.target;
-
+    
     // Check if the clicked element is a button.
     // If not, exit from the function
     if (!target.matches('button')) {
-        return
+        return;
     };
-
+    
     if (target.classList.contains('settings')) {
-        toggleShow()
+        toggleShow(target.value);
         return;
     };
     
     if (target.classList.contains('pencil')) {
         // console.log('pencil', target.value);
-        setActiveButton(target.value)
-        changeCurrentMode(target.value)
+        setActiveButton(target.value);
+        changeCurrentMode(target.value);
         return;
     };
-
+    
     if (target.classList.contains('eraser')) {
         // console.log('eraser', target.value);
-        setActiveButton(target.value)
-        changeCurrentMode(target.value)
+        setActiveButton(target.value);
+        changeCurrentMode(target.value);
         return;
     };
-
+    
     if (target.classList.contains('bg-fill')) {
         // console.log('bg-fill', target.value);
-        setActiveButton(target.value)
-        changeCurrentMode(target.value)
+        setActiveButton(target.value);
+        changeCurrentMode(target.value);
         return;
     };
-
+    
     if (target.classList.contains('random')) {
         // console.log('random', target.value);
-        setActiveButton(target.value)
-        changeCurrentMode(target.value)
+        setActiveButton(target.value);
+        changeCurrentMode(target.value);
         return;
     };
 });
 
 const buttons = tools.querySelectorAll('button');
+// Function to show settings UI
+function toggleShow(active) {
+    const settingsUi = document.getElementById('settings-ui');
+    settingsUi.classList.toggle('show');
+    if (active === 'settings') {
+        buttons[1].classList.toggle('active');
+    };
+};
+
 function setActiveButton(newMode) {
     if (currentMode === 'pencil') {
         buttons[2].classList.remove('active');
