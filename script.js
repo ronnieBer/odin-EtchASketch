@@ -13,6 +13,25 @@ let currentBgFill = defaultBgFill;
 let currentMode = defaultMode;
 
 // Change Current Value to a New Value Function
+function changeCurrentGrid(newGrid) {
+    currentGrid = newGrid;
+}
+
+function changeCurrentCanvas(newCanvas) {
+    currentGrid = newCanvas;
+}
+
+function changeCurrentColor(newColor) {
+    currentGrid = newColor;
+}
+
+function changeCurrentBgFill(newBgFill) {
+    currentGrid = newBgFill;
+}
+
+function changeCurrentMode(newMode) {
+    currentGrid = newMode;
+}
 
 // Mouse Down Event
 let mouseDown = false;
