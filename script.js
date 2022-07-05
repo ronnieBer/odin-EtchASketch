@@ -1,6 +1,9 @@
 // Default Value
 const defaultGrid = 16;
+const defaultCanvas = 500;
 const defaultColor = '#525252';
+const defaultBgFill = '#00E1FF';
+const defaultMode = 'pencil';
 
 // Current Value
 let currentGrid = defaultGrid;
