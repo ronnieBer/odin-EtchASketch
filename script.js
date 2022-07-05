@@ -18,19 +18,19 @@ function changeCurrentGrid(newGrid) {
 }
 
 function changeCurrentCanvas(newCanvas) {
-    currentGrid = newCanvas;
+    currentCanvas = newCanvas;
 }
 
 function changeCurrentColor(newColor) {
-    currentGrid = newColor;
+    currentColor = newColor;
 }
 
 function changeCurrentBgFill(newBgFill) {
-    currentGrid = newBgFill;
+    currentBgFill = newBgFill;
 }
 
 function changeCurrentMode(newMode) {
-    currentGrid = newMode;
+    currentMode = newMode;
 }
 
 // Mouse Down Event
