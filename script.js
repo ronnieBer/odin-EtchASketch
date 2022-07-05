@@ -5,6 +5,11 @@ const defaultColor = '#525252';
 // Current Value
 let currentGrid = defaultGrid;
 
+function toggleShow() {
+    const settingsUi = document.getElementById('settings-ui');
+    settingsUi.classList.toggle('show');
+};
+
 const divContainer = document.getElementById('container');
 function setupGrid(count) {
     divContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
@@ -46,7 +51,7 @@ tools.addEventListener('click', (event) => {
     };
 
     if (target.classList.contains('settings')) {
-        changeGrid();
+        toggleShow()
         return;
     };
     
