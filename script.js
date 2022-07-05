@@ -54,12 +54,14 @@ function setupGrid(count) {
     };
 };
 
-// Function to clear grid
+// Function to show settings UI
 function toggleShow() {
     const settingsUi = document.getElementById('settings-ui');
     settingsUi.classList.toggle('show');
+    settingsUi.classList.toggle('active')
 };
 
+// Function to clear grid
 function clearGrid() {
     divContainer.innerHTML = '';
 };
@@ -81,24 +83,58 @@ tools.addEventListener('click', (event) => {
     };
     
     if (target.classList.contains('pencil')) {
-        console.log('pencil', target.value);
+        // console.log('pencil', target.value);
+        setActiveButton(target.value)
+        changeCurrentMode(target.value)
         return;
     };
 
     if (target.classList.contains('eraser')) {
-        console.log('eraser', target.value);
+        // console.log('eraser', target.value);
+        setActiveButton(target.value)
+        changeCurrentMode(target.value)
         return;
     };
 
     if (target.classList.contains('bg-fill')) {
-        console.log('bg-fill', target.value);
+        // console.log('bg-fill', target.value);
+        setActiveButton(target.value)
+        changeCurrentMode(target.value)
         return;
     };
 
     if (target.classList.contains('random')) {
-        console.log('random', target.value);
+        // console.log('random', target.value);
+        setActiveButton(target.value)
+        changeCurrentMode(target.value)
         return;
     };
 });
 
-setupGrid(defaultGrid);
+const buttons = tools.querySelectorAll('button');
+function setActiveButton(newMode) {
+    if (currentMode === 'pencil') {
+        buttons[2].classList.remove('active');
+    } else if (currentMode === 'eraser') {
+        buttons[3].classList.remove('active');
+    } else if (currentMode === 'bgFill') {
+        buttons[4].classList.remove('active');
+    } else if (currentMode === 'random') {
+        buttons[5].classList.remove('active');
+    };
+
+    if (newMode === 'pencil') {
+        buttons[2].classList.add('active');
+    } else if (newMode === 'eraser') {
+        buttons[3].classList.add('active');
+    } else if (newMode === 'bgFill') {
+        buttons[4].classList.add('active');
+    } else if (newMode === 'random') {
+        buttons[5].classList.add('active');
+    };
+};
+
+window.onload = () => {
+    setupGrid(defaultGrid);
+    setActiveButton(defaultMode);
+};
