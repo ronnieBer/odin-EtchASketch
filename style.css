@@ -262,6 +262,53 @@ main {
     padding: 0;
 }
 
+.canvas-ui {
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.canvas-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em;
+    font-size: .8rem;
+    color: #FFFFFF;
+    border: 2px solid #585858;
+    border-radius: 10px 10px 0 0;
+    border-bottom-style: none;
+    background-color: #585858;
+}
+
+.canvas-hdr-title {
+    margin-left: 5px;
+}
+
+.canvas-hdr-btn button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.canvas-hdr-btn button ion-icon {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.canvas-hdr-btn button:hover ion-icon {
+    color: #a9a9a9;
+}
+
+.container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #585858;
+    border-top-style: none;
+    background-color: #ffffff;
+}
+
 footer {
     display: flex;
     justify-content: center;
