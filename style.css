@@ -41,7 +41,7 @@ main {
 }
 
 .settings-ui {
-    display: flex;
+    display: none;
     position: absolute;
     flex-direction: column;
     justify-content: center;
