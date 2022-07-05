@@ -12,6 +12,13 @@ let currentColor = defaultColor;
 let currentBgFill = defaultBgFill;
 let currentMode = defaultMode;
 
+// Change Current Value to a New Value Function
+
+// Mouse Down Event
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
 const divContainer = document.getElementById('container');
 function setupGrid(count) {
     divContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
