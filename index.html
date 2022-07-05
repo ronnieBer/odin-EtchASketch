@@ -21,6 +21,24 @@
                 <h5>TOOLS</h5>
             </div>
             <div class="tools-btn">
+                <div class="toggle-right">
+                    <div id="settings-ui" class="settings-ui">
+                        <h6>CANVAS</h6>
+                        <div id="settings-container" class="settings-container">
+                            <div class="settings">
+                                <div class="pixel">
+                                    <label for="pixel-input">PIXEL:</label>
+                                    <input type="number" value="500" min="300" max="600" id="pixel-input" class="pixel-input">
+                                </div>
+                                <div class="grid">
+                                    <label for="grid-input">GRID:</label>
+                                    <input type="number" value="16" min="2" max="75" id="grid-input" class="grid-input">
+                                </div>
+                            </div>
+                            <button type="button" id="ok-btn" class="ok-btn">OK</button>
+                        </div>
+                    </div>
+                </div>
                 <button type="button" class="tls-btn settings" value="settings"><ion-icon name="settings"></ion-icon></button>
                 <button type="button" class="tls-btn pencil" value="pencil"><ion-icon name="pencil"></ion-icon></button>
                 <button type="button" class="tls-btn eraser" value="eraser"><ion-icon name="bandage"></ion-icon></button>
