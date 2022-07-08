@@ -68,10 +68,22 @@ function resetCanvas() {
     setupCanvas(currentCanvas);
 }
 
+// Function to validate grid input value
+function validateGridInput(gridInputValue) {
+    if (gridInputValue < 2 || gridInputValue > 75) {
+        //console.log('Grid Alert'); 
+        alert('Please enter a Grid value from 2 to 75.');
+        changeCurrentGrid(defaultGrid);
+        settingsInput[1].value = currentGrid;
+        setupGrid(currentGrid);
+    };
+};
+
 // Function to change canvas property
 function changeCanvas() {
     clearGrid();
     setupGrid(currentGrid);
+    validateGridInput(currentGrid);
     setupCanvas(currentCanvas);
     toggleSettings();
 };
