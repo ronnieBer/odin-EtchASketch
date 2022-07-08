@@ -108,20 +108,24 @@ function setActiveButton(newMode) {
     // To deactivate button
     if (currentMode === 'pencil') {
         buttons[2].classList.remove('active');
+        colorInput[1].classList.remove('active');
     } else if (currentMode === 'eraser') {
         buttons[3].classList.remove('active');
     } else if (currentMode === 'bgFill') {
         buttons[4].classList.remove('active');
+        colorInput[0].classList.remove('active');
     } else if (currentMode === 'random') {
         buttons[5].classList.remove('active');
     };
     // To activate button
     if (newMode === 'pencil') {
         buttons[2].classList.add('active');
+        colorInput[1].classList.add('active');
     } else if (newMode === 'eraser') {
         buttons[3].classList.add('active');
     } else if (newMode === 'bgFill') {
         buttons[4].classList.add('active');
+        colorInput[0].classList.add('active');
     } else if (newMode === 'random') {
         buttons[5].classList.add('active');
     };
