@@ -61,12 +61,10 @@ function changeColor(event) {
 };
 
 // Function to show settings UI
-function toggleShow(active) {
+function toggleSettings() {
     const settingsUi = document.getElementById('settings-ui');
     settingsUi.classList.toggle('show');
-    if (active === 'settings') {
-        buttons[1].classList.toggle('active');
-    };
+    buttons[1].classList.toggle('active');
 };
 
 // Function to set tools button active
@@ -110,7 +108,7 @@ tools.addEventListener('click', (event) => {
     
     if (target.classList.contains('settings')) {
         // console.log('settings', target.value);
-        toggleShow(target.value);
+        toggleSettings()
         return;
     };
     
