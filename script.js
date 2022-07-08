@@ -76,6 +76,12 @@ function changeCanvas() {
     toggleSettings();
 };
 
+// function to swap currentColor and currentBgFill value
+function swapColor() {
+    [currentColor, currentBgFill] = [currentBgFill, currentColor];
+    [colorInput[1].value, colorInput[0].value] = [colorInput[0].value, colorInput[1].value];
+};
+
 // Function to change grid element color
 function changeColor(event) {
     if (!mouseDown && event.type === 'mouseover') return;
@@ -131,7 +137,12 @@ settingsInput[1].onchange = (event) => changeCurrentGrid(event.target.value);
 buttons[0].onclick = () => changeCanvas();
 
 // Canvas header button event
-headerButtons[0].onclick = () => resetCanvas()
+headerButtons[0].onclick = () => resetCanvas();
+
+// Color Picker UI event
+colorInput[0].onchange = (event) => changeCurrentBgFill(event.target.value);
+colorInput[1].onchange = (event) => changeCurrentColor(event.target.value);
+colorSwapBtn[0].onclick = () => swapColor();
 
 // Tools button click event
 tools.addEventListener('click', (event) => {
