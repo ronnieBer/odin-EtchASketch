@@ -118,6 +118,11 @@ function setActiveButton(newMode) {
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
+// Canvas settings UI event
+settingsInput[0].onchange = (event) => changeCurrentCanvas(event.target.value);
+settingsInput[1].onchange = (event) => changeCurrentGrid(event.target.value);
+buttons[0].onclick = () => changeCanvas();
+
 // Tools button click event
 tools.addEventListener('click', (event) => {
     // Access the clicked element
