@@ -79,12 +79,24 @@ function validateGridInput(gridInputValue) {
     };
 };
 
+// Function to validate canvas input value
+function validateCanvasInput(canvasInputValue) {
+    if (canvasInputValue < 300 || canvasInputValue > 600) {
+        //console.log('Canvas Alert');
+        alert('Please enter a Pixel value from 300 to 600.');
+        changeCurrentCanvas(defaultCanvas);
+        settingsInput[0].value = currentCanvas;
+        setupCanvas(currentCanvas);
+    };
+};
+
 // Function to change canvas property
 function changeCanvas() {
     clearGrid();
     setupGrid(currentGrid);
     validateGridInput(currentGrid);
     setupCanvas(currentCanvas);
+    validateCanvasInput(currentCanvas);
     toggleSettings();
 };
 
