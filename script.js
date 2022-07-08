@@ -15,8 +15,17 @@ let currentBgFill = defaultBgFill;
 let currentMode = defaultMode;
 
 // UI variables
+const divContainer = document.getElementById('container');
 const tools = document.querySelector('.tools-btn');
 const buttons = tools.querySelectorAll('button');
+const settings = document.querySelector('.settings');
+const settingsInput = settings.querySelectorAll('input');
+const canvasHeader = document.querySelector('.canvas-hdr');
+const headerButtons = canvasHeader.querySelectorAll('button');
+const headerTxt = canvasHeader.querySelectorAll('p');
+const colorPicker = document.querySelector('.color-picker-ui');
+const colorInput = colorPicker.querySelectorAll('input');
+const colorSwapBtn = colorPicker.querySelectorAll('button');
 
 // Change Current Value to a New Value Function
 function changeCurrentGrid(newGrid) { currentGrid = newGrid; };
@@ -26,7 +35,6 @@ function changeCurrentBgFill(newBgFill) { currentBgFill = newBgFill; };
 function changeCurrentMode(newMode) { currentMode = newMode; };
 
 // Function to Setup Grid
-const divContainer = document.getElementById('container');
 function setupGrid(count) {
     divContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
     divContainer.style.gridTemplateRows = `repeat(${count}, 1fr)`;
