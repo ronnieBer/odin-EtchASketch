@@ -61,7 +61,14 @@ function clearGrid() {
     divContainer.innerHTML = '';
 };
 
-//Function to change canvas property
+// Function to reset canvas property
+function resetCanvas() {
+    clearGrid();
+    setupGrid(currentGrid);
+    setupCanvas(currentCanvas);
+}
+
+// Function to change canvas property
 function changeCanvas() {
     clearGrid();
     setupGrid(currentGrid);
@@ -122,6 +129,9 @@ document.body.onmouseup = () => (mouseDown = false);
 settingsInput[0].onchange = (event) => changeCurrentCanvas(event.target.value);
 settingsInput[1].onchange = (event) => changeCurrentGrid(event.target.value);
 buttons[0].onclick = () => changeCanvas();
+
+// Canvas header button event
+headerButtons[0].onclick = () => resetCanvas()
 
 // Tools button click event
 tools.addEventListener('click', (event) => {
