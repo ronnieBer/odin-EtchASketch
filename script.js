@@ -5,6 +5,8 @@ const defaultColor = '#525252';
 const defaultBgFill = '#00E1FF';
 const defaultMode = 'pencil';
 
+let mouseDown = false;
+
 // Current Value
 let currentGrid = defaultGrid;
 let currentCanvas = defaultCanvas;
@@ -12,32 +14,18 @@ let currentColor = defaultColor;
 let currentBgFill = defaultBgFill;
 let currentMode = defaultMode;
 
+// UI variables
+const tools = document.querySelector('.tools-btn');
+const buttons = tools.querySelectorAll('button');
+
 // Change Current Value to a New Value Function
-function changeCurrentGrid(newGrid) {
-    currentGrid = newGrid;
-};
+function changeCurrentGrid(newGrid) { currentGrid = newGrid; };
+function changeCurrentCanvas(newCanvas) { currentCanvas = newCanvas; };
+function changeCurrentColor(newColor) { currentColor = newColor; };
+function changeCurrentBgFill(newBgFill) { currentBgFill = newBgFill; };
+function changeCurrentMode(newMode) { currentMode = newMode; };
 
-function changeCurrentCanvas(newCanvas) {
-    currentCanvas = newCanvas;
-};
-
-function changeCurrentColor(newColor) {
-    currentColor = newColor;
-};
-
-function changeCurrentBgFill(newBgFill) {
-    currentBgFill = newBgFill;
-};
-
-function changeCurrentMode(newMode) {
-    currentMode = newMode;
-};
-
-// Mouse Down Event
-let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
-
+// Function to Setup Grid
 const divContainer = document.getElementById('container');
 function setupGrid(count) {
     divContainer.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
@@ -58,6 +46,7 @@ function clearGrid() {
     divContainer.innerHTML = '';
 };
 
+// Function to change grid element color
 function changeColor(event) {
     if (!mouseDown && event.type === 'mouseover') return;
     if (currentMode === 'pencil') {
@@ -71,7 +60,44 @@ function changeColor(event) {
     };
 };
 
-const tools = document.querySelector('.tools-btn');
+// Function to show settings UI
+function toggleShow(active) {
+    const settingsUi = document.getElementById('settings-ui');
+    settingsUi.classList.toggle('show');
+    if (active === 'settings') {
+        buttons[1].classList.toggle('active');
+    };
+};
+
+// Function to set tools button active
+function setActiveButton(newMode) {
+    // To deactivate button
+    if (currentMode === 'pencil') {
+        buttons[2].classList.remove('active');
+    } else if (currentMode === 'eraser') {
+        buttons[3].classList.remove('active');
+    } else if (currentMode === 'bgFill') {
+        buttons[4].classList.remove('active');
+    } else if (currentMode === 'random') {
+        buttons[5].classList.remove('active');
+    };
+    // To activate button
+    if (newMode === 'pencil') {
+        buttons[2].classList.add('active');
+    } else if (newMode === 'eraser') {
+        buttons[3].classList.add('active');
+    } else if (newMode === 'bgFill') {
+        buttons[4].classList.add('active');
+    } else if (newMode === 'random') {
+        buttons[5].classList.add('active');
+    };
+};
+
+// Mouse Down Event
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+// Tools button click event
 tools.addEventListener('click', (event) => {
     // Access the clicked element
     const target = event.target;
@@ -83,6 +109,7 @@ tools.addEventListener('click', (event) => {
     };
     
     if (target.classList.contains('settings')) {
+        // console.log('settings', target.value);
         toggleShow(target.value);
         return;
     };
@@ -116,38 +143,7 @@ tools.addEventListener('click', (event) => {
     };
 });
 
-const buttons = tools.querySelectorAll('button');
-// Function to show settings UI
-function toggleShow(active) {
-    const settingsUi = document.getElementById('settings-ui');
-    settingsUi.classList.toggle('show');
-    if (active === 'settings') {
-        buttons[1].classList.toggle('active');
-    };
-};
-
-function setActiveButton(newMode) {
-    if (currentMode === 'pencil') {
-        buttons[2].classList.remove('active');
-    } else if (currentMode === 'eraser') {
-        buttons[3].classList.remove('active');
-    } else if (currentMode === 'bgFill') {
-        buttons[4].classList.remove('active');
-    } else if (currentMode === 'random') {
-        buttons[5].classList.remove('active');
-    };
-
-    if (newMode === 'pencil') {
-        buttons[2].classList.add('active');
-    } else if (newMode === 'eraser') {
-        buttons[3].classList.add('active');
-    } else if (newMode === 'bgFill') {
-        buttons[4].classList.add('active');
-    } else if (newMode === 'random') {
-        buttons[5].classList.add('active');
-    };
-};
-
+// To load default
 window.onload = () => {
     setupGrid(defaultGrid);
     setActiveButton(defaultMode);
