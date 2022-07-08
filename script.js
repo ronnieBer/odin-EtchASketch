@@ -54,11 +54,19 @@ function setupCanvas(size) {
     headerTxt[1].innerText = `SIZE: ${currentCanvas}²px w/ ${currentGrid}²grid`;
     divContainer.style.width = size + 'px';
     divContainer.style.height = size + 'px';
-}
+};
 
 // Function to clear grid
 function clearGrid() {
     divContainer.innerHTML = '';
+};
+
+//Function to change canvas property
+function changeCanvas() {
+    clearGrid();
+    setupGrid(currentGrid);
+    setupCanvas(currentCanvas);
+    toggleSettings();
 };
 
 // Function to change grid element color
