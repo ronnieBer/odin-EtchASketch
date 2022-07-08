@@ -100,6 +100,12 @@ function changeCanvas() {
     toggleSettings();
 };
 
+/* To Do:
+    - Fill bucket tool function
+    - Custom alert function
+    - Help UI function 
+*/
+
 // function to swap currentColor and currentBgFill value
 function swapColor() {
     [currentColor, currentBgFill] = [currentBgFill, currentColor];
