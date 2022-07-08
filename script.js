@@ -49,6 +49,13 @@ function setupGrid(count) {
     };
 };
 
+// Function to Setup Canvas
+function setupCanvas(size) {
+    headerTxt[1].innerText = `SIZE: ${currentCanvas}²px w/ ${currentGrid}²grid`;
+    divContainer.style.width = size + 'px';
+    divContainer.style.height = size + 'px';
+}
+
 // Function to clear grid
 function clearGrid() {
     divContainer.innerHTML = '';
