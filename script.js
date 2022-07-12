@@ -26,7 +26,8 @@ const headerTxt = canvasHeader.querySelectorAll('p');
 const colorPicker = document.querySelector('.color-picker-ui');
 const colorInput = colorPicker.querySelectorAll('input');
 const colorSwapBtn = colorPicker.querySelectorAll('button');
-const closeAlertBtn = document.getElementById('close-btn')
+const closeAlertBtn = document.getElementById('close-btn');
+const closeHelpBtn = document.getElementById('help-cls-btn');
 
 // Change Current Value to a New Value Function
 function changeCurrentGrid(newGrid) { currentGrid = newGrid; };
@@ -105,16 +106,24 @@ function changeCanvas() {
 
 /* To Do:
     - Fill bucket tool function
-    - Help UI function 
 */
+// Help UI
+function openHelp() {
+    document.getElementById('help').style.display = 'flex';
+};
+
+function closeHelp() {
+    document.getElementById('help').style.display = 'none';
+};
+
 // Alert Message
 function openAlert() {
     document.getElementById('settings-alert').style.display = 'flex';
-}
+};
 
 function closeAlert() {
     document.getElementById('settings-alert').style.display = 'none';
-}
+};
 
 // function to swap currentColor and currentBgFill value
 function swapColor() {
@@ -175,8 +184,9 @@ function setActiveButton(newMode) {
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-// Alert button event
+// Alert and Help close button event
 closeAlertBtn.onclick = () => closeAlert();
+closeHelpBtn.onclick = () => closeHelp();
 
 // Canvas settings UI event
 settingsInput[0].onchange = (event) => changeCurrentCanvas(event.target.value);
@@ -185,6 +195,7 @@ buttons[0].onclick = () => changeCanvas();
 
 // Canvas header button event
 headerButtons[0].onclick = () => resetCanvas();
+headerButtons[1].onclick = () => openHelp();
 
 // Color Picker UI event
 colorInput[0].onchange = (event) => changeCurrentBgFill(event.target.value);
