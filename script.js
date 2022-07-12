@@ -26,6 +26,7 @@ const headerTxt = canvasHeader.querySelectorAll('p');
 const colorPicker = document.querySelector('.color-picker-ui');
 const colorInput = colorPicker.querySelectorAll('input');
 const colorSwapBtn = colorPicker.querySelectorAll('button');
+const closeAlertBtn = document.getElementById('close-btn')
 
 // Change Current Value to a New Value Function
 function changeCurrentGrid(newGrid) { currentGrid = newGrid; };
@@ -72,7 +73,8 @@ function resetCanvas() {
 function validateGridInput(gridInputValue) {
     if (gridInputValue < 2 || gridInputValue > 75) {
         //console.log('Grid Alert'); 
-        alert('Please enter a Grid value from 2 to 75.');
+        // alert('Please enter a Grid value from 2 to 75.');
+        openAlert()
         changeCurrentGrid(defaultGrid);
         settingsInput[1].value = currentGrid;
         setupGrid(currentGrid);
@@ -83,7 +85,8 @@ function validateGridInput(gridInputValue) {
 function validateCanvasInput(canvasInputValue) {
     if (canvasInputValue < 300 || canvasInputValue > 600) {
         //console.log('Canvas Alert');
-        alert('Please enter a Pixel value from 300 to 600.');
+        // alert('Please enter a Pixel value from 300 to 600.');
+        openAlert()
         changeCurrentCanvas(defaultCanvas);
         settingsInput[0].value = currentCanvas;
         setupCanvas(currentCanvas);
@@ -102,9 +105,16 @@ function changeCanvas() {
 
 /* To Do:
     - Fill bucket tool function
-    - Custom alert function
     - Help UI function 
 */
+// Alert Message
+function openAlert() {
+    document.getElementById('settings-alert').style.display = 'flex';
+}
+
+function closeAlert() {
+    document.getElementById('settings-alert').style.display = 'none';
+}
 
 // function to swap currentColor and currentBgFill value
 function swapColor() {
@@ -164,6 +174,9 @@ function setActiveButton(newMode) {
 // Mouse Down Event
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
+
+// Alert button event
+closeAlertBtn.onclick = () => closeAlert();
 
 // Canvas settings UI event
 settingsInput[0].onchange = (event) => changeCurrentCanvas(event.target.value);
