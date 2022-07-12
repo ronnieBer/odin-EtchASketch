@@ -87,6 +87,41 @@ body {
     padding-bottom: 20px;
 }
 
+.help-content {
+    display: flex;
+    position: relative;
+    width: 900px;
+}
+
+.help-content button {
+    margin: 12px;
+    position: absolute;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.help-content button ion-icon {
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+.help-content button:hover ion-icon {
+    color: #828282;
+}
+
+.help-img {
+    border: 1px solid red;
+    position: relative;
+    border: 5px solid #525252;
+    border-radius: 20px;
+    width: 900px;
+}
+
 header {
     display: flex;
     justify-content: center;
