@@ -104,9 +104,16 @@ function changeCanvas() {
     toggleSettings();
 };
 
-/* To Do:
-    - Fill bucket tool function
-*/
+// Function for Fill Bucket Tool
+function bgFillColor() {
+    // console.log(divContainer);
+    let x = divContainer.querySelectorAll('.grid-element');
+
+    for (let i = 0; i < x.length; i++) {
+        x[i].style.backgroundColor = currentBgFill;
+    };
+};
+
 // Help UI
 function openHelp() {
     document.getElementById('help').style.display = 'flex';
@@ -125,7 +132,7 @@ function closeAlert() {
     document.getElementById('settings-alert').style.display = 'none';
 };
 
-// function to swap currentColor and currentBgFill value
+// Function to swap currentColor and currentBgFill value
 function swapColor() {
     [currentColor, currentBgFill] = [currentBgFill, currentColor];
     [colorInput[1].value, colorInput[0].value] = [colorInput[0].value, colorInput[1].value];
@@ -139,7 +146,7 @@ function changeColor(event) {
     } else if (currentMode === 'eraser') {
         event.target.style.backgroundColor = '';
     } else if (currentMode === 'bgFill') {
-        event.target.style.backgroundColor = currentBgFill;
+        event.target.style.backgroundColor = bgFillColor();
     } else if (currentMode === 'random') {
         event.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
     };
