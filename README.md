@@ -12,3 +12,6 @@ In this fourth repository from The Odin Project Foundations Course: JavaScript B
 
 ## Reflection/Outcome
 As I followed the instruction and completed the basic setup of this Etch-A-Sketch project, I decided to go further to make this project look like a drawing or painting app.
+
+
+#### :point_right: ETCH-A-SKETCH [Live Demo](https://ronnieber.github.io/odin-EtchASketch/)
