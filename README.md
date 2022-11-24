@@ -1,10 +1,10 @@
 # PROJECT: ETCH-A-SKETCH
 
-## A Brief Introduction
+### A Brief Introduction
 In this fourth repository from The Odin Project JavaScript Basics curriculum, I will build a browser version of something between a sketchpad and an Etch-A-Sketch using a \<div\> element and not a \<canvas\> element.
 
 
-## Learning Goal
+### Learning Goal
 - To use my DOM manipulation and Events skills.
 - To use Arrays and Loops.
 - To understand the CSS Grid and use it in this project.
