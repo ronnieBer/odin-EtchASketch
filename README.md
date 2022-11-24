@@ -1,7 +1,7 @@
 # PROJECT: ETCH-A-SKETCH
 
 ### A Brief Introduction
-In this fourth repository from The Odin Project JavaScript Basics curriculum, I will build a browser version of something between a sketchpad and an Etch-A-Sketch using a \<div\> element and not a \<canvas\> element.
+In this fourth repository from The Odin Project Foundations Course: JavaScript Basics, I will build a browser version of something between a sketchpad and an Etch-A-Sketch using a \<div\> element and not a \<canvas\> element.
 
 
 ### Learning Goal
